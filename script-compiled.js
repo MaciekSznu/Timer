@@ -88,6 +88,20 @@ var Stopwatch = function () {
       };
       this.print(this.times);
     }
+  }, {
+    key: 'saveTime',
+    value: function saveTime() {
+      var savedTime = document.querySelector('.stopwatch').innerHTML; //pobieramy wartość ze stopwatch;
+      var li = document.createElement('li');
+      var tt = document.createTextNode(savedTime);
+      li.appendChild(tt);
+      document.querySelector('.results').appendChild(li);
+    }
+  }, {
+    key: 'clearTimes',
+    value: function clearTimes() {
+      document.querySelector('.results').innerHTML = '';
+    }
   }]);
 
   return Stopwatch;
@@ -105,6 +119,8 @@ function pad0(value) {
 var stopwatch = new Stopwatch( //instancja klasy
 document.querySelector('.stopwatch'));
 
+var results = document.querySelector('.results');
+
 var startButton = document.getElementById('start'); //metoda dla przycisku start
 startButton.addEventListener('click', function () {
   return stopwatch.start();
@@ -118,4 +134,14 @@ stopButton.addEventListener('click', function () {
 var resetButton = document.getElementById('reset');
 resetButton.addEventListener('click', function () {
   return stopwatch.zero();
+});
+
+var saveButton = document.getElementById('save');
+saveButton.addEventListener('click', function () {
+  return stopwatch.saveTime();
+});
+
+var clearButton = document.getElementById('cleartimes');
+clearButton.addEventListener('click', function () {
+  return stopwatch.clearTimes();
 });

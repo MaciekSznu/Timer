@@ -61,6 +61,18 @@ class Stopwatch {//szablon klasy
     };
     this.print(this.times);
   }
+
+  saveTime() {
+    let savedTime = document.querySelector('.stopwatch').innerHTML; //pobieramy wartość ze stopwatch;
+    const li = document.createElement('li');
+    const tt = document.createTextNode(savedTime);
+    li.appendChild(tt);
+    document.querySelector('.results').appendChild(li);
+  }
+
+  clearTimes() {
+    document.querySelector('.results').innerHTML = '';
+  }
 }
 
 function pad0(value) {//funkcja ustawijąca 0 na początku jeśli pomiar jest jednocyfrowy
@@ -74,6 +86,8 @@ function pad0(value) {//funkcja ustawijąca 0 na początku jeśli pomiar jest je
 const stopwatch = new Stopwatch(//instancja klasy
 document.querySelector('.stopwatch'));
 
+const results = document.querySelector('.results');
+
 let startButton = document.getElementById('start'); //metoda dla przycisku start
 startButton.addEventListener('click', () => stopwatch.start());
 
@@ -82,3 +96,9 @@ stopButton.addEventListener('click', () => stopwatch.stop());
 
 let resetButton = document.getElementById('reset');
 resetButton.addEventListener('click', () => stopwatch.zero());
+
+let saveButton = document.getElementById('save');
+saveButton.addEventListener('click', () => stopwatch.saveTime());
+
+let clearButton = document.getElementById('cleartimes');
+clearButton.addEventListener('click', () => stopwatch.clearTimes());

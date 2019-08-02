@@ -31,3 +31,6 @@ body {
   margin: 1vh auto;
   font-size: 40px;
 }
+li {
+  list-style: decimal;
+}
