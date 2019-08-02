@@ -63,7 +63,7 @@ class Stopwatch {//szablon klasy
   }
 
   saveTime() {
-    let savedTime = document.querySelector('.stopwatch').innerHTML; //pobieramy wartość ze stopwatch;
+    let savedTime = this.format(this.times);
     const li = document.createElement('li');
     const tt = document.createTextNode(savedTime);
     li.appendChild(tt);

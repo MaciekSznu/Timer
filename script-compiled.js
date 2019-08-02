@@ -91,7 +91,7 @@ var Stopwatch = function () {
   }, {
     key: 'saveTime',
     value: function saveTime() {
-      var savedTime = document.querySelector('.stopwatch').innerHTML; //pobieramy wartość ze stopwatch;
+      var savedTime = this.format(this.times);
       var li = document.createElement('li');
       var tt = document.createTextNode(savedTime);
       li.appendChild(tt);
